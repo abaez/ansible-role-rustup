@@ -1,0 +1,16 @@
+---
+
+- name: Bash
+  shell: rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+  when: conf.shell == "bash"
+
+- name: Fish
+  shell: rustup completions fish > ~/.config/fish/completions/rustup.fish
+  when: conf.shell == "fish"
+
+- name: Zsh
+  shell: rustup completions zsh > ~/.zfunc/_rustup
+  when: conf.shell == "zsh"
+
+
+
