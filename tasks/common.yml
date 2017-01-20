@@ -7,3 +7,4 @@
     - cargo-fmt
     - racer
     - clippy
+    - cargo-clippy
