@@ -41,22 +41,37 @@ The role installs [rustup] with autocomplete settings enabled for the shell of c
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The role has 3 variables. Each one should be changed according to the user's needs. The defaults are given in the listing:
+
+``` yaml
+conf:
+
+  # shell autocomplete. Should be (bash|fish|zsh)
+  shell: fish
+
+  # if you want to have the specifics installed
+  specifics: true
+
+  # if decide to use parallel or not check the link given above for the package for more information
+  parallel: true
+```
 
 Requirements
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Your only requirement is you should change the default variables listed above to the needs for your provision using the role.
 
 Usage
 -----
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Besides the role variables, with the exception of [parallel], you only need to enable the role on your playbook.
+
+For using the [parallel] package, you need to run the role with [become] enabled for privilege of enabled **madvise** mode for usage.
 
 ``` yaml
 - hosts: servers
     roles:
-        - { role: username.rolename, x: 42 }
+        - abaez.rustup
 ```
 
 Author Information
