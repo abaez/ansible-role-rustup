@@ -1,2 +1,14 @@
 ---
-# tasks file for template
+
+- name: install rust by rustup
+  shell: curl https://sh.rustup.rs -sSf | sh
+
+- name: install autocomplete
+  include: "autocomplete.yml"
+
+- name: common
+  include: "common.yml"
+
+- name: specific
+  include: "specific.yml"
+
