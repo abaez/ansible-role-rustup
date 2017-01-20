@@ -1,2 +1,8 @@
 ---
-# defaults file for template
+
+conf:
+  # (bash|fish|zsh)
+  shell: fish
+  specifics: "true"
+  parallel: "true"
+
