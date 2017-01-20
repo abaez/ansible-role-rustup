@@ -1,14 +1,42 @@
-Role Name
+Rustup
 =========
 [![license][2i]][2p]
 [![twitter][3i]][3p]
 
-A brief description of the role goes here.
+A [rustup] install with packages for [rust].
 
 Description
 -----------
 
-Give a description
+Too many times the packages needed on a new build would I need to essentially provision a [rust] install. This role's goal is to lessen the workload in getting a [rust] common install. Along with also offering more specific defined packages configured and ready for [rust] fun.
+
+The role installs [rustup] with autocomplete settings enabled for the shell of choice. The packages are listed below. They are divided into two different configurations. One are the common always used packages (default install, no way to disable). The second set are more specifically tuned to the Author's needs. You can find out more how to disable under [Usage](#Usage) if you don't want the **specific** packages.
+
+> from `common.yml`
+
+- [rustfmt]
+- [cargo-fmt]
+- [racer]
+- [clippy]
+
+> from `specific.yml`
+
+- target
+  - aarch64-linux-android
+  - aarch64-linux-android
+  - aarch64-unknown-linux-gnu
+  - arm-unknown-linux-musleabi
+  - arm-unknown-linux-musleabihf
+  - armv7-unknown-linux-gnueabihf
+  - armv7-unknown-linux-musleabihf
+  - x86_64-unknown-linux-musl
+- toolchain
+  - nightly-x86_64-unknown-linux-gnu
+- packages
+  - [exa]
+  - [way-cooler]
+  - [iota]
+  - [parallel]
 
 Role Variables
 --------------
@@ -41,3 +69,15 @@ Author Information
 [2p]: ./LICENSE
 [3i]: https://img.shields.io/badge/twitter-a_baez-blue.svg
 [3p]: https://twitter.com/a_baez
+
+[exa]: https://github.com/ogham/exa
+[way-cooler]: https://github.com/Immington-Industries/way-cooler
+[iota]: https://github.com/gchp/iota
+[parallel]: https://github.com/mmstick/parallel
+[rust]: https://rust-lang.org
+[rustup]: https://github.com/rust-lang-nursery/rustup.rs
+[clippy]: https://crates.io/crates/clippy
+[rustfmt]: https://crates.io/crates/rustfmt
+[cargo-fmt]: https://crates.io/crates/cargo-fmt
+[cargo-clippy]: https://crates.io/crates/cargo-clippy
+[racer]: https://crates.io/crates/racer
