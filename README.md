@@ -96,3 +96,4 @@ Author Information
 [cargo-fmt]: https://crates.io/crates/cargo-fmt
 [cargo-clippy]: https://crates.io/crates/cargo-clippy
 [racer]: https://crates.io/crates/racer
+[become]: http://docs.ansible.com/ansible/become.html
