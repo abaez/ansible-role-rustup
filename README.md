@@ -18,6 +18,7 @@ The role installs [rustup] with autocomplete settings enabled for the shell of c
 - [cargo-fmt]
 - [racer]
 - [clippy]
+- [cargo-clippy]
 
 > from `specific.yml`
 
