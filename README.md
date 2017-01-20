@@ -34,6 +34,7 @@ The role installs [rustup] with autocomplete settings enabled for the shell of c
 - toolchain
   - nightly-x86_64-unknown-linux-gnu
 - packages
+  - [pijul]
   - [exa]
   - [way-cooler]
   - [iota]
@@ -86,6 +87,7 @@ Author Information
 [3i]: https://img.shields.io/badge/twitter-a_baez-blue.svg
 [3p]: https://twitter.com/a_baez
 
+[pijul]: https://pijul.org/
 [exa]: https://github.com/ogham/exa
 [way-cooler]: https://github.com/Immington-Industries/way-cooler
 [iota]: https://github.com/gchp/iota

@@ -21,6 +21,11 @@
     - { toolchain: nightly, url: "https://github.com/Immington-Industries/way-cooler"}
     - { toolchain: nightly, url: "https://github.com/gchp/iota"}
 
+- name: install other specific from cargo
+  command: rustup run stable cargo install {{ item }}
+  with_items:
+    - pijul
+
 
 - name: enable madvise
   shell: echo "madvise" > /sys/kernel/mm/transparent_hugepage/enabled
