@@ -1,7 +1,7 @@
 ---
 
 - name: install specific rust targets
-  command: ~/.cargo/bin/rustup target add {{ item }}
+  shell: ~/.cargo/bin/rustup target add {{ item }}
   with_items:
     - aarch64-linux-android
     - aarch64-unknown-linux-gnu
@@ -20,12 +20,12 @@
     - { toolchain: stable, url: "https://github.com/ogham/exa"}
     - { toolchain: nightly, url: "https://github.com/Immington-Industries/way-cooler"}
     - { toolchain: nightly, url: "https://github.com/gchp/iota"}
+    - { toolchain: nightly, url: "https://github.com/Manishearth/rust-clippy"}
 
-- name: install other specific from cargo
+- name: install pijul
   shell: ~/.cargo/bin/rustup run stable cargo install {{ item }}
   with_items:
     - pijul
-
 
 - name: enable madvise
   shell: echo "madvise" > /sys/kernel/mm/transparent_hugepage/enabled

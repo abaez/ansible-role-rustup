@@ -4,7 +4,4 @@
   shell: ~/.cargo/bin/rustup run stable cargo install {{ item }}
   with_items:
     - rustfmt
-    - cargo-fmt
     - racer
-    - clippy
-    - cargo-clippy
