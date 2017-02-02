@@ -1,16 +1,41 @@
 ---
 
+- name: Bash directory
+  file:
+    path: /etc/bash_completion.d
+    state: directory
+    recurse: yes
+  when: conf.shell == "bash"
+
 - name: Bash
   shell: rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+  args:
+    creates: /etc/bash_completion.d/rustup.bash-completion
   when: conf.shell == "bash"
+
+- name: Fish directory
+  file:
+    path: ~/.config/fish/completions
+    state: directory
+    recurse: yes
+  when: conf.shell == "fish"
 
 - name: Fish
   shell: rustup completions fish > ~/.config/fish/completions/rustup.fish
+  args:
+    creates: ~/.config/fish/completions/rustup.fish
   when: conf.shell == "fish"
+
+- name: Zsh directory
+  file:
+    path: ~/.zfunc
+    state: directory
+    recurse: yes
+  when: conf.shell == "zsh"
 
 - name: Zsh
   shell: rustup completions zsh > ~/.zfunc/_rustup
+  args:
+    creates: ~/.zfunc/_rustup
   when: conf.shell == "zsh"
-
-
 
