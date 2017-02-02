@@ -8,7 +8,7 @@
   when: conf.shell == "bash"
 
 - name: Bash
-  shell: rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+  shell: ~/.cargo/bin/rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
   args:
     creates: /etc/bash_completion.d/rustup.bash-completion
   when: conf.shell == "bash"
@@ -21,7 +21,7 @@
   when: conf.shell == "fish"
 
 - name: Fish
-  shell: rustup completions fish > ~/.config/fish/completions/rustup.fish
+  shell: ~/.cargo/bin/rustup completions fish > ~/.config/fish/completions/rustup.fish
   args:
     creates: ~/.config/fish/completions/rustup.fish
   when: conf.shell == "fish"
@@ -34,7 +34,7 @@
   when: conf.shell == "zsh"
 
 - name: Zsh
-  shell: rustup completions zsh > ~/.zfunc/_rustup
+  shell: ~/.cargo/bin/rustup completions zsh > ~/.zfunc/_rustup
   args:
     creates: ~/.zfunc/_rustup
   when: conf.shell == "zsh"

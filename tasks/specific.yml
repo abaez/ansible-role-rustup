@@ -33,5 +33,5 @@
   when: conf.parallel == "true"
 
 - name: install parallel
-  shell: ~/.cargo/bin/rustup run nightly cargo install --target x86_64-unknown-linux-musl parallel
+  shell: ~/.cargo/bin/rustup run nightly cargo install parallel
   when: conf.parallel == "true"
