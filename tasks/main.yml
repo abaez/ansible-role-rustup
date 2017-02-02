@@ -1,7 +1,7 @@
 ---
 
 - name: install rust by rustup
-  shell: curl https://sh.rustup.rs -sSf | sh
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 - name: install autocomplete
   include: "autocomplete.yml"
