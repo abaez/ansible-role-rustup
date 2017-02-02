@@ -1,7 +1,7 @@
 ---
 
 - name: install all common packages
-  command: rustup run stable cargo install {{ item }}
+  shell: ~/.cargo/bin/rustup run stable cargo install {{ item }}
   with_items:
     - rustfmt
     - cargo-fmt
