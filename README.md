@@ -10,19 +10,17 @@ Description
 
 Too many times the packages needed on a new build would I need to essentially provision a [rust] install. This role's goal is to lessen the workload in getting a [rust] common install. Along with also offering more specific defined packages configured and ready for [rust] fun.
 
-The role installs [rustup] with autocomplete settings enabled for the shell of choice. The packages are listed below. They are divided into two different configurations. One are the common always used packages (default install, no way to disable). The second set are more specifically tuned to the Author's needs. You can find out more how to disable under [Usage](#Usage) if you don't want the **specific** packages.
+The role installs [rustup] with autocomplete settings enabled for the shell of choice. The packages are listed below. They are divided into two different configurations. One are the common always used packages under the **common.crates** list in `defaults/main.yml`. The second set are more specifically tuned to the Author's needs under **specific** in `defaults/main.yml`. You can find out more how to disable under [Usage](#Usage) if you don't want the **specific** packages or if you want to change on the listing.
 
-> from `common.yml`
+> from **common.crates**
 
 - [rustfmt]
-- [cargo-fmt]
 - [racer]
-- [clippy]
-- [cargo-clippy]
+- [pijul]
 
-> from `specific.yml`
+> from **specific** dictionary
 
-- target
+- targets
   - aarch64-linux-android
   - aarch64-linux-android
   - aarch64-unknown-linux-gnu
@@ -31,19 +29,19 @@ The role installs [rustup] with autocomplete settings enabled for the shell of c
   - armv7-unknown-linux-gnueabihf
   - armv7-unknown-linux-musleabihf
   - x86_64-unknown-linux-musl
-- toolchain
+- toolchains
   - nightly-x86_64-unknown-linux-gnu
-- packages
-  - [pijul]
+- crates
   - [exa]
   - [way-cooler]
   - [iota]
   - [parallel]
+  - [rust-clippy]
 
 Role Variables
 --------------
 
-The role has 3 variables. Each one should be changed according to the user's needs. The defaults are given in the listing:
+The role has 3 variables to update. Each one should be changed according to the user's needs. The defaults can be seen in [defaults]:
 
 ``` yaml
 conf:
@@ -66,7 +64,7 @@ Your only requirement is you should change the default variables listed above to
 Usage
 -----
 
-Besides the role variables, with the exception of [parallel], you only need to enable the role on your playbook.
+Besides the role variables, with the exception of [parallel], you only need to enable the role on your playbook. If you want to install your own crates, targets, or toolchains, you can simply be replacing the variables given in [defaults].
 
 For using the [parallel] package, you need to run the role with [become] enabled for privilege of enabled **madvise** mode for usage.
 
@@ -100,3 +98,4 @@ Author Information
 [cargo-clippy]: https://crates.io/crates/cargo-clippy
 [racer]: https://crates.io/crates/racer
 [become]: http://docs.ansible.com/ansible/become.html
+[defaults]: ./defaults/main.yml

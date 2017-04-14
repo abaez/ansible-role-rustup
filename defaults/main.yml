@@ -4,7 +4,7 @@ conf:
   # (bash|fish|zsh)
   shell: fish
   specifics: true
-  parallel: true
+  parallel: false
 
 common:
   crates:
