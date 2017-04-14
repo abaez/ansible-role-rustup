@@ -2,30 +2,16 @@
 
 - name: install specific rust targets
   shell: ~/.cargo/bin/rustup target add {{ item }}
-  with_items:
-    - aarch64-linux-android
-    - aarch64-unknown-linux-gnu
-    - arm-unknown-linux-musleabi
-    - arm-unknown-linux-musleabihf
-    - armv7-unknown-linux-gnueabihf
-    - armv7-unknown-linux-musleabihf
-    - x86_64-unknown-linux-musl
+  with_items: "{{ specific.targets }}"
 
 - name: install nightly toolchain
-  shell: ~/.cargo/bin/rustup toolchain install nightly-x86_64-unknown-linux-gnu
+  shell: ~/.cargo/bin/rustup toolchain install {{ item }}
+  with_items: "{{ specific.toolchains }}"
 
 - name: install all specific packages
   shell: ~/.cargo/bin/rustup run {{ toolchain }} cargo install --git {{ url }}
-  with_items:
-    - { toolchain: stable, url: "https://github.com/ogham/exa"}
-    - { toolchain: nightly, url: "https://github.com/Immington-Industries/way-cooler"}
-    - { toolchain: nightly, url: "https://github.com/gchp/iota"}
-    - { toolchain: nightly, url: "https://github.com/Manishearth/rust-clippy"}
+  with_items: "{{ specific.crates }}"
 
-- name: install pijul
-  shell: ~/.cargo/bin/rustup run stable cargo install {{ item }}
-  with_items:
-    - pijul
 
 - name: enable madvise
   shell: echo "madvise" > /sys/kernel/mm/transparent_hugepage/enabled
