@@ -3,8 +3,9 @@
 conf:
   # (bash|fish|zsh)
   shell: fish
-  specifics: "true"
-  parallel: "true"
+  specifics: true
+  parallel: true
+
 common:
   crates:
     - rustfmt

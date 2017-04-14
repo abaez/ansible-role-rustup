@@ -16,8 +16,8 @@
 - name: enable madvise
   shell: echo "madvise" > /sys/kernel/mm/transparent_hugepage/enabled
   become: true
-  when: conf.parallel == "true"
+  when: conf.parallel
 
 - name: install parallel
   shell: ~/.cargo/bin/rustup run nightly cargo install parallel
-  when: conf.parallel == "true"
+  when: conf.parallel
