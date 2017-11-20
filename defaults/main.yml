@@ -11,6 +11,9 @@ common:
     - rustfmt
     - racer
     - pijul
+    - fd-find
+    - ripgrep
+    - pijul
 
 specific:
   crates:
